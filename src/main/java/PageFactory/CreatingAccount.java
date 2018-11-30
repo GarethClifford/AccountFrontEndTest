@@ -1,10 +1,6 @@
 package PageFactory;
 
-import org.junit.After;
-import org.junit.Before;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class CreatingAccount {
@@ -24,6 +20,7 @@ public class CreatingAccount {
 	public void enterDetails(String fname, String lname) {
 		firstNameBox.sendKeys(fname);
 		lastNameBox.sendKeys(lname);
+		submitButton.click();
 	}
 	
 	public void submittingDetails() {
@@ -32,6 +29,7 @@ public class CreatingAccount {
 	
 	public String detailValidation() {
 		String message;
+		submitButton.click();
 		if (firstNameBox.getText().equals("") && lastNameBox.getText().equals("") ) {
 			message = errormessage.getText();
 		}else if(firstNameBox.getText().equals("")) {
